@@ -62,7 +62,7 @@ After a few moments you'll see a message like this:
 Hoodie will automatically open the demo app in your browser. This app is basically a shallow copy of the original Hoodie TestApp.
 Open browser console to see a few messages from your PureScript-based app.
 
-<img src="http://fs5.directupload.net/images/160306/lc83zeuf.png"/>
+<img src="http://fs5.directupload.net/images/160306/irye87qy.png"/>
 
 #### Running on Windows
 
