@@ -43,7 +43,7 @@ gulp
 *Demo App*
 
 ```shell
-gulp make-demo [initial build only or when API implementation chages]
+gulp make-demo [initial build only or when API implementation changes]
 gulp build-demo
 ```
 
