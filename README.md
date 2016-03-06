@@ -2,9 +2,9 @@
 
 Hoodie Bindings for PureScript (Work in Progress)
 
-This is a PureSccript library containing bindings for accessing the offline-first, noBackend Framework <a href="http://hood.ie/">Hoodie</a>. 
+This is a PureSccript library containing bindings for accessing the offline-first, noBackend Framework <a href="http://hood.ie/">Hoodie</a>.
 
-Some parts of Hoodie's API are implemeted:
+Currently, these API are implemented:
 
 *Store API*
 - <a href="http://docs.hood.ie/en/techdocs/api/client/hoodie.store.html#storeadd">add</a>
@@ -68,7 +68,7 @@ Open browser console to see a few messages from your PureScript-based app.
 
 If your CouchDB installation is not in the default path (C:\Programs ... etc) then you'll likely run into some weird errors like "no CouchDB found".
 
-In this case you can use <a href="https://github.com/hoodiehq/node-multicouch/pull/31">my proposed fix</a>. 
+In this case you can use <a href="https://github.com/hoodiehq/node-multicouch/pull/31">my proposed fix</a>.
 
 The solution is very simple: just copy the contents of the **multicouch-folder** to _your_ multicouch that's located under **node_modules**.
 
@@ -78,7 +78,7 @@ However, I have **to warn you** that this fix only worked *on my machine* and th
 
 But if more people test the fix we can find out if it works in general. Thanks for trying it out. :thumbsup:
 
-#### License 
+#### License
 
 <a href="https://github.com/brakmic/purescript-hoodie/blob/master/LICENSE">MIT</a>
 
