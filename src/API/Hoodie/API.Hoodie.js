@@ -45,7 +45,7 @@ var add = function(type){
         return function(failCallback){
           var cbFail = extractCallback(failCallback);
           return function(_hoodie){
-            var cb = createCallback('add_wrapper', null);
+            var cb = createCallback('add', null);
             return function(){
               cb(_hoodie.store.add(type, props, ops)
                 .done(cbDone)
@@ -66,7 +66,7 @@ var find = function(type){
       return function(failCallback){
         var cbFail = extractCallback(failCallback);
         return function(_hoodie){
-          var cb = createCallback('find_wrapper', null);
+          var cb = createCallback('find', null);
           return function(){
             cb(_hoodie.store.find(type, id)
               .done(doneCallback)
@@ -105,7 +105,7 @@ var findOrAdd = function(type){
           return function(failCallback){
             var cbDone = extractCallback(failCallback);
             return function(_hoodie){
-              var cb = createCallback('findOrAdd_wrapper', null);
+              var cb = createCallback('findOrAdd', null);
               return function(){
                 cb(_hoodie.store.findOrAdd(type,id,props, ops)
                   .done(doneCallback)
@@ -126,7 +126,7 @@ var findAll = function(type){
     return function(failCallback){
       var cbDone = extractCallback(failCallback);
       return function(_hoodie){
-        var cb = createCallback('findAll_wrapper', null);
+        var cb = createCallback('findAll', null);
         return function(){
           cb(_hoodie.store.findAll(type)
             .done(doneCallback)
@@ -175,7 +175,7 @@ var update = function(type){
           return function(failCallback){
             var cbFail = extractCallback(failCallback);
             return function(_hoodie){
-              var cb = createCallback('update_wrapper', null);
+              var cb = createCallback('update', null);
               return function(){
                 cb(_hoodie.store.update(type, id, props, ops)
                   .done(cbDone)
@@ -220,7 +220,7 @@ var updateOrAdd = function(type){
           return function(failCallback){
             var cbFail = extractCallback(failCallback);
             return function(_hoodie){
-              var cb = createCallback('updateOrAdd_wrapper', null);
+              var cb = createCallback('updateOrAdd', null);
               return function(){
                 cb(_hoodie.store.updateOrAdd(type, id, props, ops)
                   .done(cbDone)
@@ -264,7 +264,7 @@ var updateAll = function(type){
         return function(failCallback){
           var cbFail = extractCallback(failCallback);
           return function(_hoodie){
-            var cb = createCallback('updateAll_wrapper', null);
+            var cb = createCallback('updateAll', null);
             return function(){
               cb(_hoodie.store.updateAll(type, props, ops)
                 .done(cbDone)
@@ -294,7 +294,7 @@ var remove = function(type){
         return function(failCallback){
           var cbFail = extractCallback(failCallback);
           return function(_hoodie){
-            var cb = createCallback('´remove_wrapper', null);
+            var cb = createCallback('remove', null);
             return function(){
               cb(_hoodie.store.remove(type, id, ops)
                 .done(cbDone)
@@ -323,7 +323,7 @@ var removeAll = function(type){
       return function(failCallback){
         var cbFail = extractCallback(failCallback);
         return function(_hoodie){
-          var cb = createCallback('´removeAll_wrapper', null);
+          var cb = createCallback('removeAll', null);
           return function(){
             cb(_hoodie.store.removeAll(type, ops)
               .done(cbDone)

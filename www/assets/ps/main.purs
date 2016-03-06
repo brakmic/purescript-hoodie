@@ -35,6 +35,6 @@ main = do
       update "todo" (Just "005") props options callback callback myHoodie
       updateOrAdd "todo" "005" props options callback callback myHoodie
       updateAll "todo" props options callback callback myHoodie-}
-      findAll "todo" callback callback myHoodie
-      removeAll "todo" options callback callback myHoodie
+      --findAll "todo" callback callback myHoodie
+      --removeAll "todo" options callback callback myHoodie
       return unit
