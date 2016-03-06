@@ -1,0 +1,109 @@
+{
+  "name": "purescript-hoodie",
+  "version": "0.1.0",
+  "bundleDependencies": [
+    "hoodie-plugin-appconfig",
+    "hoodie-plugin-email",
+    "hoodie-plugin-users",
+    "hoodie-server"
+  ],
+  "description": "[![Dependency Status](https://david-dm.org/hoodiehq/my-first-hoodie.svg)](https://david-dm.org/hoodiehq/my-first-hoodie)",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "hoodie start",
+    "test": "pulp test"
+  },
+  "keywords": [
+    "hoodie",
+    "bindings",
+    "purescript",
+    "offlinefirst",
+    "nobackend",
+    "webapps"
+  ],
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "files": [
+    "www/"
+  ],
+  "hoodie": {
+    "plugins": [
+      "hoodie-plugin-appconfig",
+      "hoodie-plugin-email",
+      "hoodie-plugin-users"
+    ]
+  },
+  "dependencies": {
+    "hoodie-plugin-appconfig": "^2.0.1",
+    "hoodie-plugin-email": "^1.0.0",
+    "hoodie-plugin-users": "^2.2.2",
+    "hoodie-server": "^4.0.2",
+    "json-cycle": "^1.0.5"
+  },
+  "type": "app",
+  "gitHead": "33fdb70357c415bbed56bbbd5197c805c0264294",
+  "_id": "my-first-hoodie@3.2.1",
+  "_shasum": "240df30b9664e56a04bb2ba2ad26c52e5691d763",
+  "_from": "my-first-hoodie@3.2.1",
+  "_npmVersion": "2.13.0",
+  "_nodeVersion": "2.3.0",
+  "_npmUser": {
+    "name": "boennemann",
+    "email": "stephan@boennemann.me"
+  },
+  "dist": {
+    "shasum": "240df30b9664e56a04bb2ba2ad26c52e5691d763",
+    "tarball": "http://registry.npmjs.org/my-first-hoodie/-/my-first-hoodie-3.2.1.tgz"
+  },
+  "author": "Harris Brakmic",
+  "license": "MIT",
+  "devDependencies": {
+    "async-uglify-js-webpack-plugin": "0.0.4",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-preset-stage-3": "^6.5.0",
+    "babel-runtime": "^6.5.0",
+    "component-webpack-plugin": "^0.2.1",
+    "compression-webpack-plugin": "^0.3.0",
+    "css-loader": "^0.23.1",
+    "del": "^2.2.0",
+    "exports-loader": "^0.6.3",
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^1.3.0",
+    "gulp-purescript": "^0.8.0",
+    "highlight.js": "^9.2.0",
+    "html-loader": "^0.4.3",
+    "img-loader": "^1.2.2",
+    "imports-loader": "^0.6.5",
+    "json-loader": "^0.5.4",
+    "less-loader": "^2.2.2",
+    "merge2": "^1.0.1",
+    "nodemon": "^1.9.1",
+    "raw-loader": "^0.5.1",
+    "script-loader": "^0.6.1",
+    "source-map": "^0.5.3",
+    "style-loader": "^0.13.0",
+    "stylus-loader": "^1.5.1",
+    "text-loader": "0.0.1",
+    "uglify-loader": "^1.3.0",
+    "underscore": "^1.8.3",
+    "url-loader": "^0.5.7",
+    "vinyl-paths": "^2.1.0",
+    "webpack": "^1.12.14",
+    "webpack-config": "^4.0.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-stream": "^3.1.0",
+    "whatwg-fetch": "^0.11.0"
+  },
+  "_resolved": "https://registry.npmjs.org/my-first-hoodie/-/my-first-hoodie-3.2.1.tgz"
+}

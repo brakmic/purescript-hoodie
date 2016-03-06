@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="hoodie with purescript">
+    <title>Hoodie with PureScript</title>
+    <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="assets/vendor/highlight.js/styles/default.css">
+  <link rel="stylesheet" href="assets/vendor/prism/prism.css">
+  <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+<div id="dummy"></div>
+<div id="app"/>
+
+<div class="container">
+      <header role="banner" class="jumbotron">
+        <h2>Hoodie with PureScript</h1>
+        <p>
+           Your purely functional playground :-)
+        </p>
+
+        <div class="hoodie-accountbar">
+
+          <div class="hoodie-account-signedout">
+            <span class="btn-group">
+              <button class="btn btn-small btn-primary" data-hoodie-action="signup">Sign Up</button>
+              <button class="btn btn-small dropdown-toggle btn-primary" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#" data-hoodie-action="signin">Sign In</a></li>
+                <li><a href="#" data-hoodie-action="resetpassword">Reset Password</a></li>
+                <li><a href="#" data-hoodie-action="destroy">Clear local data</a></li>
+              </ul>
+            </span>
+          </div><!-- /.hoodie-account-signedout -->
+
+          <div class="hoodie-account-signedin">
+            Hello,
+            <span class="hoodie-username"><!-- username will be filled in here --></span>
+            <span class="btn-group">
+              <button class="btn btn-small btn-primary" data-hoodie-action="signout">Sign Out</button>
+              <button class="btn btn-small dropdown-toggle btn-primary" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#" data-hoodie-action="changepassword">Change Password</a></li>
+                <li><a href="#" data-hoodie-action="changeusername">Change Username</a></li>
+                <li><a href="#" data-hoodie-action="destroy">Destroy Account</a></li>
+              </ul>
+            </span>
+          </div><!-- /.hoodie-account-signedin -->
+
+          <div class="hoodie-account-error">
+            Hello,
+            <span class="hoodie-username"><!-- username will be filled in here --></span>.
+            <span class="btn-group">
+              <button class="btn btn-small btn-danger" data-hoodie-action="signin">Authentication error: Sign in again</button>
+              <button class="btn btn-small dropdown-toggle btn-danger" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#" data-hoodie-action="signout">Sign out</a></li>
+              </ul>
+            </span>
+          </div><!-- /.hoodie-account-error -->
+        </div><!--/hoodieAccountBar -->
+      </header>
+
+      <div role="main" class="content">
+        <ul id="todolist"></ul>
+
+        <label for="todoinput"><b>Write a new todo item</b></label>
+        <input type="text" id="todoinput"  placeholder="new todo ↵" />
+      </div>
+
+      <aside role="complementary" class="code">
+        <pre><code class="haskell">
+module DemoApp.Hoodie where
+
+import Prelude                     (Unit, unit, return, bind, (++))
+import Data.Maybe                  (Maybe(Nothing, Just))
+import Control.Monad.Eff           (Eff)
+import Control.Monad.Eff.Console   (CONSOLE, log)
+import Control.Monad.Eff.Exception (EXCEPTION)
+import API.Hoodie
+
+type HoodieDocument a = {
+  "type" :: String
+  | a
+}
+
+callback :: forall a e. a -> Eff(console :: CONSOLE | e) Unit
+callback = \anyData -> do
+                       logRaw anyData
+
+eventHandler :: forall a e. HoodieDocument a -> Eff(console :: CONSOLE | e) Unit
+eventHandler = \doc -> do
+                        logRaw ("DOC-TYPE: " ++ doc.type)
+
+main :: forall e. Eff(console :: CONSOLE, hoodieM :: HoodieM, err :: EXCEPTION | e) Unit
+main = do
+      let props         = { id : Just "005", "title" : "Getting Water", "updateFunction" : Nothing }
+      let options       = Just { "silent" : false }
+      let maybeCallback = Just callback
+
+      myHoodie <- hoodie Nothing
+      on "store:change" eventHandler myHoodie
+
+      add "todo" props options maybeCallback maybeCallback myHoodie
+      find "todo" "005" callback callback myHoodie
+      findOrAdd "todo" (Just "005") props options callback callback myHoodie
+      update "todo" (Just "005") props options callback callback myHoodie
+      updateOrAdd "todo" "005" props options callback callback myHoodie
+      updateAll "todo" props options callback callback myHoodie
+      findAll "todo" callback callback myHoodie
+      removeAll "todo" options callback callback myHoodie
+      return unit
+        </code></pre>
+              </aside><!-- /.code -->
+
+      <footer role="contentinfo" class="copy">
+        <p>&hearts; hood.ie 2015</p>
+      </footer>
+    </div> <!-- /.container -->
+
+  <script src="assets/vendor/jquery/jquery-2.1.1.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="assets/vendor/prism/prism.js"></script>
+
+  <script src="/_api/_files/hoodie.js"></script>
+
+  <script src="assets/vendor/hoodie/hoodie.accountbar.bootstrap.js"></script>
+  <script src="assets/vendor/highlight.js/highlight.pack.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.modalform.js"></script>
+
+  <script src="assets/js/main.min.js"></script>
+
+
+<script>
+function initHighlighting(){
+  console.log('Loading Haskell Syntax Support');
+  hljs.initHighlightingOnLoad();
+}
+
+function runPureScriptApp(){
+  console.log('Loading PureScript-based App');
+  window.app = DemoApp.hoodie.main();
+}
+
+$(function(){
+  initHighlighting();
+  runPureScriptApp();
+});
+</script>
+</body>
+</html>
