@@ -4,6 +4,8 @@ Hoodie Bindings for PureScript (Work in Progress)
 
 This is a PureScript library containing bindings for accessing the offline-first, noBackend Framework <a href="http://hood.ie/">Hoodie</a>.
 
+The article on this library is located <a href="http://blog.brakmic.com/offline-first-webapps-with-hoodie-and-purescript/">here</a>.
+
 Currently, these API are implemented:
 
 *Store API*
