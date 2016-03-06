@@ -55,7 +55,7 @@ Go to your install directory and type in the console:
 npm start
 ```
 
-After a few moment you'll see a message like this:
+After a few moments you'll see a message like this:
 
 <img src="http://fs5.directupload.net/images/160306/7w49zjdd.png"/>
 
