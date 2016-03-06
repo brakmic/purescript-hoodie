@@ -388,8 +388,8 @@ var logRaw = function(str) {
   };
 };
 
-var fallback = function(anyValue){
-  //console.log(JSON.stringify(jc.decycle(anyValue), null, 4));
+var fallback = function(apiName, anyValue){
+  console.log('[' + apiName + '] ' + JSON.stringify(jc.decycle(anyValue), null, 4));
 };
 
 var extractCallback = function(maybeCallback){
@@ -409,7 +409,9 @@ var createCallback = function(api, callback){
     callback.value0){
     callback = callback.value0;
   }else if(!callback){
-    callback = fallback;
+    callback = function(anyValue){
+      return fallback(api, anyValue);
+    };
   }
   if(callback &&
        callback.constructor &&
